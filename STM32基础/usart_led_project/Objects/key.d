@@ -1,0 +1,9 @@
+.\objects\key.o: user\src\key.c
+.\objects\key.o: .\user\inc\key.h
+.\objects\key.o: .\cmsis\inc\stm32f4xx.h
+.\objects\key.o: .\cmsis\inc\core_cm4.h
+.\objects\key.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\key.o: .\cmsis\inc\core_cmInstr.h
+.\objects\key.o: .\cmsis\inc\core_cmFunc.h
+.\objects\key.o: .\cmsis\inc\core_cmSimd.h
+.\objects\key.o: .\cmsis\inc\system_stm32f4xx.h

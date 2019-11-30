@@ -1,0 +1,19 @@
+--cpu=Cortex-M4.fp
+".\objects\stm32f4xx_it.o"
+".\objects\startup_stm32f40_41xxx.o"
+".\objects\system_stm32f4xx.o"
+".\objects\main.o"
+".\objects\led.o"
+".\objects\key.o"
+".\objects\delay.o"
+".\objects\uart.o"
+".\objects\key_interrupt.o"
+".\objects\watchdog.o"
+".\objects\systick.o"
+".\objects\time.o"
+".\objects\pwm_out.o"
+".\objects\pwm_in.o"
+--strict --scatter ".\Objects\project_demo.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\project_demo.map" -o .\Objects\project_demo.axf

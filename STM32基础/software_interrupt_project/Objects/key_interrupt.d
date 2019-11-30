@@ -1,0 +1,9 @@
+.\objects\key_interrupt.o: user\src\key_interrupt.c
+.\objects\key_interrupt.o: .\user\inc\key_interrupt.h
+.\objects\key_interrupt.o: .\cmsis\inc\stm32f4xx.h
+.\objects\key_interrupt.o: .\cmsis\inc\core_cm4.h
+.\objects\key_interrupt.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\key_interrupt.o: .\cmsis\inc\core_cmInstr.h
+.\objects\key_interrupt.o: .\cmsis\inc\core_cmFunc.h
+.\objects\key_interrupt.o: .\cmsis\inc\core_cmSimd.h
+.\objects\key_interrupt.o: .\cmsis\inc\system_stm32f4xx.h

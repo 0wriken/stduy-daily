@@ -1,0 +1,16 @@
+.\objects\main.o: user\src\main.c
+.\objects\main.o: .\user\inc\main.h
+.\objects\main.o: .\cmsis\inc\stm32f10x.h
+.\objects\main.o: .\cmsis\inc\core_cm3.h
+.\objects\main.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: .\cmsis\inc\system_stm32f10x.h
+.\objects\main.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: .\user\inc\led.h
+.\objects\main.o: .\user\inc\key.h
+.\objects\main.o: .\user\inc\usart.h
+.\objects\main.o: .\user\inc\time.h
+.\objects\main.o: .\user\inc\pwm_out.h
+.\objects\main.o: .\user\inc\pwm_in.h
+.\objects\main.o: .\user\inc\dma_usart.h
+.\objects\main.o: .\user\inc\dma_memory.h

@@ -1,0 +1,12 @@
+.\objects\time.o: user\src\time.c
+.\objects\time.o: .\user\inc\time.h
+.\objects\time.o: .\cmsis\inc\stm32f4xx.h
+.\objects\time.o: .\cmsis\inc\core_cm4.h
+.\objects\time.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\time.o: .\cmsis\inc\core_cmInstr.h
+.\objects\time.o: .\cmsis\inc\core_cmFunc.h
+.\objects\time.o: .\cmsis\inc\core_cmSimd.h
+.\objects\time.o: .\cmsis\inc\system_stm32f4xx.h
+.\objects\time.o: .\user\inc\uart.h
+.\objects\time.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\time.o: D:\keil5MDK\ARM\ARMCC\Bin\..\include\string.h

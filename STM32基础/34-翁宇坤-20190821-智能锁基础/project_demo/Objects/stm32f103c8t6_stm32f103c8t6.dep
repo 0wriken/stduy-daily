@@ -1,0 +1,88 @@
+Dependencies for Project 'stm32f103c8t6', Target 'stm32f103c8t6': (DO NOT MODIFY !)
+F (.\cmsis\src\core_cm3.c)(0x4C0C587E)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+F (.\cmsis\src\stm32f10x_it.c)(0x4D99A59E)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
+I (.\cmsis\inc\stm32f10x_it.h)(0x4D99A59E)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\cmsis\src\system_stm32f10x.c)(0x4D99A59E)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\cmsis\src\startup_stm32f10x_md.s)(0x4D783CD2)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 526" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
+F (.\user\src\main.c)(0x5D5D38AD)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\user\inc\main.h)(0x5D5D3515)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+I (D:\keil5MDK\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (D:\keil5MDK\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+I (.\user\inc\led.h)(0x5D5BBE88)
+I (.\user\inc\key.h)(0x5D5BD1CD)
+I (.\user\inc\usart.h)(0x5D5BD9EA)
+I (.\user\inc\time.h)(0x5D5BE659)
+I (.\user\inc\pwm_out.h)(0x5D5C23F9)
+I (.\user\inc\pwm_in.h)(0x5D5CBBAF)
+I (.\user\inc\dma_usart.h)(0x5D5D222C)
+I (.\user\inc\dma_memory.h)(0x5D5D369A)
+F (.\user\src\led.c)(0x5D5CC113)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+I (.\user\inc\led.h)(0x5D5BBE88)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\user\inc\main.h)(0x5D5D3515)()
+F (.\user\inc\led.h)(0x5D5BBE88)()
+F (.\user\src\key.c)(0x5D5CC14D)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (.\user\inc\key.h)(0x5D5BD1CD)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\user\inc\usart.h)(0x5D5BD9EA)()
+F (.\user\src\usart.c)(0x5D60E2DE)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
+I (.\user\inc\usart.h)(0x5D5BD9EA)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\user\src\time.c)(0x5D5CC1C2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\time.o --omf_browse .\objects\time.crf --depend .\objects\time.d)
+I (.\user\inc\time.h)(0x5D5BE659)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\user\src\pwm_out.c)(0x5D5D029A)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\pwm_out.o --omf_browse .\objects\pwm_out.crf --depend .\objects\pwm_out.d)
+I (.\user\inc\pwm_out.h)(0x5D5C23F9)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\user\inc\pwm_out.h)(0x5D5C23F9)()
+F (.\user\src\pwm_in.c)(0x5D5D165D)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\pwm_in.o --omf_browse .\objects\pwm_in.crf --depend .\objects\pwm_in.d)
+I (.\user\inc\pwm_in.h)(0x5D5CBBAF)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+I (.\user\inc\key.h)(0x5D5BD1CD)
+F (.\user\inc\pwm_in.h)(0x5D5CBBAF)()
+F (.\user\src\dma_usart.c)(0x5D5D2BE7)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\dma_usart.o --omf_browse .\objects\dma_usart.crf --depend .\objects\dma_usart.d)
+I (.\user\inc\dma_usart.h)(0x5D5D222C)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+I (.\user\inc\usart.h)(0x5D5BD9EA)
+F (.\user\inc\dma_usart.h)(0x5D5D222C)()
+F (.\user\src\dma_memory.c)(0x5D5D34AA)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\cmsis\inc -I .\user\inc-I.\RTE\_stm32f103c8t6-ID:\keil5MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\keil5MDK\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_MD -DSTM32F10X_MD-o .\objects\dma_memory.o --omf_browse .\objects\dma_memory.crf --depend .\objects\dma_memory.d)
+I (.\user\inc\dma_memory.h)(0x5D5D369A)
+I (.\cmsis\inc\stm32f10x.h)(0x4D783CB4)
+I (.\cmsis\inc\core_cm3.h)(0x4D523B58)
+I (D:\keil5MDK\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (.\cmsis\inc\system_stm32f10x.h)(0x4D783CAA)
+F (.\user\inc\dma_memory.h)(0x5D5D369A)()
