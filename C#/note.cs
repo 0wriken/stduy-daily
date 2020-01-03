@@ -66,7 +66,7 @@ namespace idexTest
 class student
 {
 	private Dictionary<string ,int>sorce=new Dictionary<string ,int>(); //调用库泛型编程为string类型与下标值
-	public int? this[string subject]
+	public int? this(string subject) //int? 返回值包括NULL this 用于构造函数 
 	{
 
 		get
@@ -130,7 +130,7 @@ class student
 		bool b2=double.TryParse(arg2,out y);
 		if(b2==false)
 		{
-			console.WriteLine("  ")
+			console.WriteLine("  ");
 			return;
 		}
 		console.WriteLine(x+y);
@@ -273,7 +273,7 @@ delegate 是函数指针的升级版
 	namespace DelegateExamle
 	{
 		//注意类型兼容
-		public delegate double Calu(double x,double y);
+		public delegate Calu int(double x,double y);
 		class Calculator 
 		{
 			static void Main(String[] args)
@@ -291,12 +291,12 @@ delegate 是函数指针的升级版
 		{
 			console.WriteLine("hello");
 		}
-		public int Add(int a, intn b)
+		public int Add(double a, double b)
 		{
 			int result =a+b;
 			return result;
 		}
-		public int Sub(int a, intn b)
+		public int Sub(double a, double b)
 		{
 			int result =a-b;
 			return result;
@@ -369,7 +369,7 @@ delegate 是函数指针的升级版
 	{
 		public void Log(product pro)
 		{
-			console.WriteLine(product.Name,DataTime.UtcNow.product.price);
+			console.WriteLine(pro.Name,pro.price);
 		}
 	}
 缺点：这是一种方法级别的紧耦合，可能突破进程内存，注意使用
@@ -402,24 +402,562 @@ delegate 是函数指针的升级版
  		}
  	}
 
+8.接口 抽象类 abstract public 
+开闭原则：封装稳定的成员，把不稳定的抽象为类
+重写关键字：override 
+不同于虚函数 virtual 抽象修饰无方法体，且类也要定义为抽象类
+	using System;
+	namespace wriken{
+ 	class program
+ 	{
+ 		static void Main(string[] args)
+ 		{
+ 			Example i=new Car();
+ 			i.Run();//多态
+		}
+	}		
+	/*类似于C++中的虚函数*/
+	class Example
+	{
+		/*虚函数要定义方法*/
+		public virtual void RUN()
+		{
+			console.WriteLine("Exaanpole is Run..");
+		}
+
+	}
+	class Car:Example
+	{
+		public override void Run()
+		{
+			console.WriteLine("Car is Runing..");
+		}
+	}
+	class Trush: Example
+	{
+		public override void Run()
+		{
+			console.WriteLine("Trush is runing..");
+		}
+	}
+	/* C#中的抽象类使用**/
+	abstract class Example
+	{
+		/*虚函数要定义方法*/
+		public abstract void RUN();
+	}
+	class Car:Example
+	{
+		public override void Run()
+		{
+			console.WriteLine("Car is Runing..");
+		}
+	}
+	class Trush: Example
+	{
+		public override void Run()
+		{
+			console.WriteLine("Trush is runing..");
+		}
+	}
+	/*接口 为了节省全抽象的麻烦，使用接口*/
+	interface IVaBase
+	{
+		void RUN();
+		void Fill();
+		void Stop();
+	}
+	/*在使用抽象类来继承*/
+	abstract class Example:IVaBase
+	{
+		/*此时不必重写*/
+		public void Run()
+		{	
+			console.WriteLine("Example runing..");
+		}
+		public void Stop()
+		{
+			console.WriteLine("Example Stop..");	
+		}
+		/*未使用的继续保存抽象类*/
+		abstract void Fill();
+	}
+	class Car:Example
+	{
+		public override void Fill()
+	{
+		console.WriteLine("CAR is FiLL..");
+	}
+	}
+}
+/*接口与耦合*/
+using System;
+	namespace wriken{
+ 	class program
+ 	{
+ 		static void Main(string[] args)
+ 		{
+ 			volue v1=new volue();
+ 			Car c1=new Car(v1);
+ 			c1.Run(100);
+ 			console.WriteLine("%d",c1.Speed);
+		}
+	class volue
+	{
+		public int GAS{get;private set;}
+		public void work(int value)
+		{
+			this.GAS=value*1000;
+		}	
+	}
+	class Car
+	{
+		/*紧耦合 */
+		private volue _volue;
+ 		public Car(volue volue1)
+ 		{
+ 			this._volue=volue1;1
+ 		}
+ 		public int Speed{get;private set;}
+ 		public void  Run(int value)
+ 		{
+ 			 _volue.work(value);
+ 			 this.Speed=this._volue.GAS/30;
+ 		}
+	}
+}
+	/*使用接口实现低耦合*/
+using system;
+namespace wriken{
+ 	class program
+ 	{
+ 		static void Main(string[] args)
+ 		{
+			userPhone user=new (new Apple());
+			//userPhone user=new(new SAMSUM());
+			user.whatabout();
+		}
+	interface phone
+	{
+		void message();
+		void size();
+		void CPU();
+	}
+
+	class userPhone
+	{
+		private phone _phone{get;set;}
+		public userPhone(phone phone)
+		{
+			this._phone=phone;
+		}
+		public void whatabout()
+		{	
+			this._phone.message();
+			this._phone.size();1
+			this._phone.CPU();
+		}
+	}
+	class Apple:phone
+	{
+		public void message()
+		{
+			console.WriteLine("Apple is good");
+		}
+		public void size()
+		{
+		console.WriteLine("Apple size is good");	
+		}
+		public void CPU()
+		{
+			console.WriteLine("Apple CPU is good");	
+		}
+	}
+	class SAMSUM:phone
+	{
+		public void message()
+		{
+			console.WriteLine("SAMSUM: is good");
+		}
+		public void size()
+		{
+		console.WriteLine("SAMSUM: size is good");	
+		}
+		public void CPU()
+		{
+			console.WriteLine("SAMSUM: CPU is good");	
+		}
+	}
+}
+}
+}
+/*依赖反转原则  倒置 单元测试*/
+namespace wriken
+{
+	class program
+	{
+		static void Main(string []args)
+		{
+			Check_Pow ch1=new Check_Pow(new DeskFan());
+			return ;
+		}
+	
+		interface IPowerLow
+		{
+			int GetPower();
+		}
+		class DeskFan:IPowerLow
+		{
+			public int GetPower()
+			{
+				console.WriteLine("get the Desk FAN");
+				return 110;
+			}
+		}
+		class Check_Pow
+		{
+			public IPowerLow _IPowerLow;
+			public Check_Pow(IPowerLow IPowerLow)
+			{
+				this._IPowerLow=IPowerLow;
+			}
+			public void check(void)
+			{
+				if(this._IPowerLow.GetPower()<0)
+				{
+					console.WriteLine("NO POWer");
+				}
+				else if(this._IPowerLow.GetPower()<100)
+				{
+					console.WriteLine("the power is find");	
+				}
+				else if(this._IPowerLow.GetPower()>100)
+				{
+					console.WriteLine("the power is out");
+				}
+				else
+				{
+					console.WriteLine("such enouch power..");
+				}
+			}
+		}
+
+}
+}
+/*测试环节*/
+namespace InterfaceExample.idexTest
+{	
+	class DeskFan_Text
+	{
+		[Fact]
+		public void IPowerthanZero.OK()
+		{
+			Check_Pow c1=new Check_Pow(new IPowerthanZero());
+			var str="the power is find";
+			var str1=c1.check();
+			Asset.Equal(str,str1);
+		} 
+
+	}
+	class IPowerthanZero:IPowerLow
+	{
+		public int GetPower()
+		{
+			console.WriteLine("IPowerLow getpower");
+			return 0;
+		}
+	}
+}
+
+
+/*一个接口继承多个接口*/
+
+
+9./*泛型 编程*/
+/*为了避免编程时候的成员膨胀
+  正交性 */
+
+using System;
+using namespace program
+{
+	class Program
+	{
+		public static void Main(string []args)
+		{
+
+		}
+	}
+} 
+class Apple
+{
+	public string color{get;set;}
+}
+class book
+{
+	public string Name{get;set;}
+}
+class box <TID>
+{
+	public <TID> console{get;set;}
+}
+
+
+using System;
+namespace wriken
+{
+	//interna只在当前程序集中访问
+	internal class  my_po
+	{
+		static void Main(string [] args)
+		{
+			//里氏转换
+			person p1;
+			student s1=new student("weiken",22,"M");
+			//子类可以转换为父类
+			p1=s1;
+			//父类由相应子类转换后可以赋值相应的子类对象
+			student s2=(student ) p1;
+
+			if(p1 is student)
+			s3=p1 as student;
+
+			//里氏转换应用
+			ArrayList list=new ArrayList();
+			int[] num=new int [10]{1,2,3,4,5,6};
+			string[] str=new iu=string [3]{"wriken","look","nothing"};
+			list.Add(num);
+			list.Add(str);
+			list.Add(p1);
+			list.Add(s2);
+			foreach(int i in list.length)
+			{
+				if(list[i] is int[])
+				{
+					foreach(int j in (list[i] as int[])[j])
+					{
+
+						console.WriteLine("整数",(list[i] as int[])[j]));
+					}
+				}
+				if(list[i] is string[])
+				{
+					int  j=0;
+					foreach( j in (list[i] as string[][j])
+					{
+
+						console.WriteLine("字符串",(list[i] as string[])[j]));
+					}
+				}
+				if(list[i] is person)
+				{
+					{
+						console.WriteLine("整数",(list[i] as person).show());
+					}
+				}
+				if(list[i] is student)
+				{
+					{
+						console.WriteLine("整数",(list[i] as student).show());
+					}
+				}
+	}
+	public class person
+	{
+		public string Name{get;set;}
+		public int age{get;set;}
+		public chae sex{get;set;}
+		public void person(string NAME,int age,char sex)
+		{
+			this.NAME=NAME;
+			this.age=age;
+			this.sex=sex;
+		}
+		public void show()
+		{
+			console.WriteLine("名字%s，年龄%d,性别%c",NAME,age,sex);
+		} 
+	}
+	public class student :person
+	{
+		//不继承父类构造函数 但是会调用
+		public student(string NAME,int age,char sex):base(NAME,age,sex)
+		{
+			this.NAME=NAME;
+			this.age=age;
+			this.sex=sex;	
+		}
+	}
 
 
 
+/*1.值与键的关系*/
+using System.Collections;
+namespace wriken
+{
+	class program
+	{
+	 	static void Main(string[] args)
+	 	{	
+	 		HashTable ht= new HashTable();
+	 		ht.Add(1,"Wriken");
+	 		ht.Addp('2',"yukong");
+	 		HT.Add(3,"LinKen");
+	 		foreach(var i in ht.value)
+	 		{
+	 			console.WriteLine(i);
+	 		}
+		 	foreach(var i in ht.Keys)
+	 		{
+	 			console.WriteLine(ht[i]);
+	 		}
+	 	} 
 
+	}
+}
+/*简繁转换*/
+	class program
+	{
+		static void Main(string[] args)
+		{
+			HashTable ht=new HashTable();
+			const string s1="繁体中文合集";
+			const string s2 ="简体中文合集";
+			for(int i=0;i<s2.length;i++)
+			{
+				ht.Add(s2[i],s1[i]);
+			}
+			console.WriteLine("写入汉字,将他转换为火星文");
+			string str=console.ReadLine();
+			for(i=0;i<str.length;i++)
+			{
+				if(ht.ContainKeyn(str[i]))
+				{
+					console.WriteLine(ht[str[i]]);
+				}
+			}
+		}
+	
+	/*实例分拣奇偶数*/
+	static void Main(string[] args)
+	{
+		list <int> l1=new list <int>();
+		list <int> l2=new list <int>();
+		list <int> l3=new list <int>();
+		int sum=0;
+		for(int i=0;i<100;i++)
+		{
+			l1.Add(i);
+		}
+		for(var a in l1)
+		{
+			if(l1[i]%2)
+			{
+				l2.Add(a)
+			}
+			else
+			{
+				l3.Add(a);
+			}
+		}
+		console.WriteLine("奇数如下");
+		for(var a1 in l2)
+		{
+			sum+=a1;
+			console.Write(" ",a1);
+		}
+		console.WriteLine("sum l2 is %d",sum);
+		console.WriteLine("偶数如下");
+		for(var a2 in l2)
+		{
+			sum+=a2;
+			console.Write(" ",a2);
+		}
+		console.WriteLine("sum l3 is %d",sum);
+	}
+}
 
+namespace 拆箱装箱
+{
 
+	class program
+	{
+		static void Main(string[] args)
+		{  
+			int n=10;
+			object o=n;//装箱
+			int nn=(int)o;//拆箱
+		}
+	}
+}
 
+namespace 键值泛型结合
+{
+	class propgram
+	{
+		static void Main(string[] args)
+		{
+			Dictionary <in,string> dic=new <int,string>();
+			foreahc(var i in dic.Keys)
+			{
+				console.WriteLine(dic[i]);
+			}
 
+		}
+		//统计每种字符串中每种字符出现的次数
+		class check
+		{
+			public Dictionary<int,char> dic;
+			public void check(string str)
+			{
+				dic=new <char,int>();
+				foreach(char i in str)
+				{
+					if(dic.ContainValue)
+						dic[str[i]]++;
+					else
+					dic[str[i]]=1;
+				}
+				for(var a in dic.Keys)
+				{
+					console.WriteLine("%s,%d",a,dic[a]);
+				}
+		}
 
+	}
+}
+namespace 09File类
+{
+	class program
+	{
+		 static void Main(string[] args)
+		 {
+		 	//判断是否存在
+		 	bool b=File.Exists(@"C:\user\wriken\1.txt");
+		 	File.Copy(@"C:\user\wriken\1.txt",@"C:\user\wriken\2.txt");
+		 	File.Move(@"C:\user\wriken\1.txt",@"C:\user\wriken\2.txt");
+		 	File.Delete(@"C:\user\wriken\1.txt");
 
+		 	//读取数据
+		 	byte[] buf= File.ReadAllBytes(@"C:\user\wriken\1.txt");
+			string str=System.Text.Encoding.Default.GetString(buf);
+		 	console.WriteLine(str);
+		 	string str1=File.ReadAllLines(@"C:\user\wriken\1.txt",Encoding.Default);
+		 	//写入数据
+		 	string str1="hello wriken\r\n";
+		 	byte[] buf1=System.Text.Encoding.Default.GetBytes(str);
+		 	File.WriteAllBytes(@"C:\user\wriken\1.txt",buf1);
 
+		 	string[] names={"wriken","yukong","LinKen"};
+		 	File.WriteAllLines(@"C:\user\wriken\2.txt",names); 
+		 	File.WriteAllText(@"C:\user\wriken\2.txt","新建文件写入");
+		 	File.AppendAllText(@"C:\user\wriken\2.txt","追加写入");
+		 	
+		 	Dictionary.CreateDirectory(@"C:\Wriken\6.txt");
+		 	Dictionary.Delete(@"C:\wriken\6.txt",ture);
 
-
-
-
-
-
-
+		 }
+	}
+}
 
 
 
