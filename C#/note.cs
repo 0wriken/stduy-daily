@@ -460,7 +460,7 @@ delegate 是函数指针的升级版
 			console.WriteLine("Trush is runing..");
 		}
 	}
-	/*接口 为了节省全抽象的麻烦，使用接口*/
+	/*接口 为了节省全抽象的麻烦，使用接口 不能包含字段*/
 	interface IVaBase
 	{
 		void RUN();
@@ -956,6 +956,66 @@ namespace 09File类
 		 	Dictionary.Delete(@"C:\wriken\6.txt",ture);
 
 		 }
+	}
+}
+using system;
+using System.Runtime.Serialization.Formatters.Binary;
+namespace _序列号
+{
+	class wriken
+	{
+		static void Main(string[]args)
+		{
+			person per=new person();
+			person per1;
+			per.name=wrien;
+			per.age=20;
+			per.sex=M;
+		   //写入二进制数据
+		   FileStream fs = new FileStream("C:/user/yukong/1.txt", FileMode.Create,FileMode.Write,FileMode.open);
+		   BinaryFormatter bf = new BinaryFormatter();
+		   bf.Serialize(fs,per);
+		   //读取二级制数据
+		   FileStream fs1 = new FileStream(@"C:/user/yukong/1.txt", FileMode.Create,FileMode.Read,FileMode.open);
+		   BinaryFormatter bf1 = new BinaryFormatter();
+		   per1=bf1.deSerialize(fs1);
+		   console.WriteLine(per1.name);
+		   console.WriteLine(per1.age);
+		   console.WriteLine(per1.sex);
+		}
+	}
+	public class person
+	{
+		public int age{get;set;}
+		public string name{get;set;}
+		public char sex{set;get;}
+	}
+}
+using System.Security.Cryptography;
+using System;
+namespace _MD5加密
+{
+	class wriken{
+		static void Main(string[]args)
+		{
+			console.WriteLine("请输入密码");
+			string str=console.ReadLine();
+			console,WriteLine(GetMD5(str));
+			return ;
+		}
+	}
+	public string GetMD5(string str)
+	{
+		MD5 M=MD5.Create();
+		byte[] buffer=System.Text.Encoding.Default.GetBytes(str);
+		byte[] pass= M.ComputeHash(buffer);
+		string str_pass;
+		for(int i=0;i<str_pass.length;i++)
+		{
+			str_pass+=pass[i].ToString("x2");
+		}
+		console.WriteLine("转换密码成功");
+		return str_pass;
 	}
 }
 
