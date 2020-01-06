@@ -70,6 +70,10 @@ static struct key_info keys[]={
 	    .irq=0
     },
 };
+//定义队列标志位
+static int btn_action=0;
+//出定义队列名
+static wait_queue_head_t btn_wq;
 //container_of(ptr,type,member);
 void my_task_func(unsigned long data)
 {
@@ -99,22 +103,36 @@ static int  key_size;
 irqreturn_t btns_irq_handler(int irq, void *devid)
 {
 	struct key_info *pdata = (struct key_info *)devid;
+	//微线程的调度工作
 	tasklet_schedule(&pdata->my_tasklet);
+	//唤醒等待队列
+	btn_action=1;
+	//检验
+	wake_up(&btn_wq);
 	return IRQ_HANDLED;
 }
 
 static ssize_t xxxx_read (struct file *pfile, char __user *buf, size_t count, loff_t * off)
 {
 	int ret = 0;
-
+	//发现标志位为0时
+	if(btn_action==0)
+	{   //判断是否为非阻塞方式打开
+		if(pfile->f_flags & O_NONBLOCK)
+		{
+			return -EAGAIN;
+		}//等待阻塞
+		wait_event(btn_wq,btn_action);
+	}
 	// 检测用户空间传递下来的参数是否合法,以及尝试对参数进行修正
+	//清标志位
+	btn_action=0;
 	if(count > key_size){
 		count = key_size;
 	}
 	if(count == 0) {
 		return 0;
 	}	
-
 	//准备数据，但是按键数据在中断中实时更新，不需要在这里读取
 
 	//复制数据到用户空间
@@ -150,7 +168,7 @@ static int __init xyd_btn_init(void)
     printk("gpio is ok\n");
 	//计算按键数量
 	key_size = ARRAY_SIZE(keys);  
-
+	init_waitqueue_head(&btn_wq);
 	//分配按键缓冲区
 	keys_buf = kzalloc(key_size, GFP_KERNEL);
 	if(keys_buf==NULL){
@@ -208,7 +226,8 @@ static void __exit xyd_btn_exit(void)
 		tasklet_kill(&keys[i].my_tasklet);
 	}	
 	misc_deregister(&xxx_device);                 //注销杂项设备
-
+	destroy_workqueue((struct
+	 workqueue_struct*)&btn_wq);
 	kfree(keys_buf);                              //释放按键缓冲区空间
 }
 
