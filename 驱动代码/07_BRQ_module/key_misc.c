@@ -24,7 +24,7 @@ static ssize_t xxx_read(struct file *pfile,char __user *buf, size_t count, loff_
 {
     if(count>BTN_SIZE)
         count=BTN_SIZE;
-    if(count==0)
+    if(count==0)1
         return 0;
     if(copy_to_user(buf,key_buf,count))
     {
