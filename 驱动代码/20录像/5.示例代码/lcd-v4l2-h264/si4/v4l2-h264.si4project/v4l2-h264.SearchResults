@@ -1,0 +1,15 @@
+---- i_frame_size Matches (15 in 1 files) ----
+encode_frame in h264encoder.c : 	int i_frame_size;
+encode_frame in h264encoder.c : 	i_frame_size = x264_encoder_encode(en->handle, &(en->nal), &nNal, en->picture, &pic_out) ;
+encode_frame in h264encoder.c :     if (i_frame_size < 0) {
+encode_frame in h264encoder.c : 	if(i_frame_size){
+encode_frame in h264encoder.c : 		printf("i_frame_size:%d\r\n",i_frame_size);
+encode_frame in h264encoder.c : 		memcpy(p_out, en->nal->p_payload, i_frame_size);
+encode_frame in h264encoder.c :     return i_frame_size;
+flush_encoder in h264encoder.c :     int i_frame_size;
+flush_encoder in h264encoder.c :         i_frame_size = x264_encoder_encode(en->handle, &(en->nal), &nNal, NULL, &pic_out);
+flush_encoder in h264encoder.c :         if(i_frame_size == 0) {
+flush_encoder in h264encoder.c :         i_frame_size = x264_encoder_encode(en->handle, &(en->nal), &nNal, NULL, &pic_out);
+flush_encoder in h264encoder.c :         if( i_frame_size < 0 ){
+flush_encoder in h264encoder.c :         else if( i_frame_size )
+flush_encoder in h264encoder.c :             if( !fwrite( en->nal->p_payload, i_frame_size, 1, h264_fp )){

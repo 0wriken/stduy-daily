@@ -1,0 +1,4 @@
+---- cap_image_size Matches (3 in 2 files) ----
+v4l2-function.c line 37 : static   unsigned int cap_image_size = 0;
+video_device_init in v4l2-function.c :     cap_image_size = fmt.fmt.pix.sizeimage;
+buffer in v4l2-function.h :     size_t length;//buffer's length is different from cap_image_size

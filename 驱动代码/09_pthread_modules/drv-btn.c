@@ -17,6 +17,7 @@
 #define ARRAYSIZE(a)		(sizeof(a) / sizeof(a[0]))
 #endif
 static char *keys_buf;
+static int Btn_flag;
 //使用面向对象思想设计按键，把一个按键信息进行封装
 struct key_info{
 	int id;                  //按键编号
@@ -85,7 +86,7 @@ void btns_timer(unsigned long data)
 	//检测当前的电平状态
 	s = !gpio_get_value(pdata->gpio);  //按下是低电平,
 	keys_buf[pdata->id]= '0' + s;      //保存状态
-
+	Btn_flag=1;
 }
 
 //按键数量,在模块初始化函数中进行计算
@@ -118,11 +119,16 @@ static ssize_t xxxx_read (struct file *pfile, char __user *buf, size_t count, lo
 	//准备数据，但是按键数据在中断中实时更新，不需要在这里读取
 
 	//复制数据到用户空间
-	ret = copy_to_user(buf, keys_buf, count);
-	if(ret){
-		printk("error copy_to_user!");
-		ret = -EFAULT;
-		goto error_copy_to_user;
+	if(Btn_flag==1)
+	{
+		ret = copy_to_user(buf, keys_buf, count);
+		if(ret)
+		{
+			printk("error copy_to_user!");
+			ret = -EFAULT;
+			goto error_copy_to_user;
+		}
+		Btn_flag=0;
 	}
 
 	return count;
