@@ -1,0 +1,13 @@
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\bin\Debug\wriken_study1.exe.config
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\bin\Debug\wriken_study1.exe
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\bin\Debug\wriken_study1.pdb
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.csprojResolveAssemblyReference.cache
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form1.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form2.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Properties.Resources.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.csproj.GenerateResource.Cache
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.exe
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.pdb
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form3.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form4.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form5.resources

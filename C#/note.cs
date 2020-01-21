@@ -52,7 +52,7 @@ private	set
 }}
 
 2.索引器：index
-using System;;
+using System;
 using System.Collections.Generic;
 namespace idexTest
 {
@@ -1018,10 +1018,15 @@ namespace _MD5加密
 		return str_pass;
 	}
 }
+string.Trim();//去掉空格
+
+//winform
+	SoundPlayer.SoundLocation=...;
 
 
-
-
-
-
-
+openFileDialog 
+SaveFileDialog 
+FileStream(path,FileMode,FileAccess.Write)
+using(FileStream )
+	System.Text.Encoding.Default.GetBytes(string );
+	fsWrite.Write(buf,0,buf.length);

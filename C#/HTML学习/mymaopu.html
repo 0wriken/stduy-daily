@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<!--框架页面不允许出现<body> 左右分 clos 上下分 rows 不允许滑动 noressize -->
+	<frameset rows="10% ,*">
+		<frame src="up.html" noresize="noresize">
+		<frameset cols="30%,*" style="background: blue">
+			<frame src="left.html">
+			<!--右边打开的方式还是用name靠谱-->
+			<frame src="right.html" name="wriken">
+		</frameset>
+	</frameset>
+</html>
