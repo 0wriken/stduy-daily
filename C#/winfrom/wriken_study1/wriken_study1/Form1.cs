@@ -21,6 +21,7 @@ namespace wriken_study1
         private void button2_Click(object sender, EventArgs e)
         {
             var frm = new Form2();
+
             if (this.uesrname_text.Text == "1" && this.password_text.Text == "1")
             {
                 frm.Show(this);

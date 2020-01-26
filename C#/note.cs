@@ -1029,4 +1029,19 @@ SaveFileDialog
 FileStream(path,FileMode,FileAccess.Write)
 using(FileStream )
 	System.Text.Encoding.Default.GetBytes(string );
-	fsWrite.Write(buf,0,buf.length);
+	Write(buf,0,buf.length);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,6 +35,12 @@ namespace wriken_study1
             from1.label4.Text = "开启身份验证";
             from3.Show();
         }
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            var form6 = new Form6();
+            form6.Show();
+        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -77,6 +83,18 @@ namespace wriken_study1
                 this.Location = p1;
                 time_flag = 0;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form6 = new Form6();
+            form6.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var form7 = new Form7();
+            form7.Show();
         }
     }
 }

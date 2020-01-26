@@ -38,6 +38,8 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.dou_Btn = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -98,7 +100,7 @@
             // 
             // dou_Btn
             // 
-            this.dou_Btn.Location = new System.Drawing.Point(350, 12);
+            this.dou_Btn.Location = new System.Drawing.Point(437, 13);
             this.dou_Btn.Name = "dou_Btn";
             this.dou_Btn.Size = new System.Drawing.Size(75, 23);
             this.dou_Btn.TabIndex = 5;
@@ -110,11 +112,33 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(148, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "音乐播放器";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(293, 13);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(98, 23);
+            this.button3.TabIndex = 7;
+            this.button3.Text = " 猜拳小游戏";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 378);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dou_Btn);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -123,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +163,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button dou_Btn;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

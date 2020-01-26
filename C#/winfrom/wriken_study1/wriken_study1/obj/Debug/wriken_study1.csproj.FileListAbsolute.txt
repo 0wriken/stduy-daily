@@ -11,3 +11,10 @@ D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.pdb
 D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form3.resources
 D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form4.resources
 D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form5.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\bin\Debug\Interop.WMPLib.dll
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\bin\Debug\AxInterop.WMPLib.dll
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\Interop.WMPLib.dll
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\AxInterop.WMPLib.dll
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.csproj.ResolveComReference.cache
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form6.resources
+D:\GIT4\C#\winfrom\wriken_study1\wriken_study1\obj\Debug\wriken_study1.Form7.resources
