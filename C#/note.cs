@@ -1030,11 +1030,283 @@ FileStream(path,FileMode,FileAccess.Write)
 using(FileStream )
 	System.Text.Encoding.Default.GetBytes(string );
 	Write(buf,0,buf.length);
+//超市收银系统
+//收银方式类:用户付钱+返回价格 原价 打折 满减	
+//商品类：产品的编号名称价格 笔记本 苹果 香蕉  
+//仓库数据 以商品类为参数  显示商品信息  导入自创商品的类型+个数 提取货物数量
+	Guid 不会重复
+//超市 创建仓库 
+ public Apple(int i,string n,double p):base(i,n,p)
+{
+    this.id=i;
+    this.name=n;
+    this.price=p;
+}
+abstract class Payway
+{
+	public double Pay_money
+    {
+        get;
+        set;
+    }
+	public abstract void 	Pay_mon(double user_mon)
+	{
 
+	}
 
+}
+class PayDiscount:Payway
+{
+	public double dis_count
+	{
+		get;
+		set;
+	}
+	//设置折扣
+ 	public PayDiscount(double d1)
+ 	{
+ 		dis_count=d1;
+ 	}   
+ 	public void Pay_mon(double user_mon)
+ 	{
+ 		this.Pay_money=user_mon*dis_count;
+ 	}
+}
 
+class Full_re:Payway
+{
+	public double Full_mon
+	{
+		get;
+		set;
+	}
+	//设置满减的构造函数
+	public void Pay_mon(double user_mon)
+	{
+		if(user_mon>=1000)
+			Full_mon=200;
+		else if(user_mon>=500)
+			Full_mon=50;
+		else if(user_mon>=300)
+			Full_mon=50;
+		else if(user_mon>=100)
+			Full_mon=20;
+		this.Pay_money=user_mon- Full_mon;
+	}
+}
+//收银台
+//满减与折扣不得共享
+class Cashier
+{
+	public  Payway p;
+	//支付方式
+	public Cashier_way(int i)
+	{
+		switch(i)
+		{
+			//默认模式
+			case 0:
+			{
+				PayDiscount p=new PayDiscount(1);		
+				break;
+			}
+			case 1:
+			{
+				PayDiscount p=new PayDiscount(0.8);
+				break;
+			}
+			case 2:
+			{
+				PayDiscount p=new PayDiscount(0.6);
+				break;
+			}
+			//满减
+			case 3:
+			{
+				Full_re p=new Full_re();
+				break;
+			}
+		}
+	}
+	public double Cashier_pro(production pro,int num)
+	{
+		p.Pay_mon(pro.price*num);
+		return this.p.Pay_money;
+	}
+}
+//设置商品类
+abstract class production
+{
+	public int id
+	{
+		get;
+		set;
+	}
+	public string names
+	{
+		get;
+		set;
+	}
+	public double price
+	{
+		get;
+		set;
+	} 
+	public production(int i,string n,double p) 
+	{
+		this.id=i;
+		this.name=n;
+		this.price=p;
+	}
+}
 
+//商品类的继承
+class xxx :production
+{
+	public xxx(int i,string n,double p):base(id,name,price)
+	{
+		this.id=i;
+		this.name=n;
+		this.price=p;
+	}
+}
+//仓库类
+namespace supermarkey
+{
+    class Warehouse
+    {
+        //仓库对象
+	public int []number
+	{
+		get;set;
+	}
+	List<List<production>> list =new List<List<production>>();
+	public Warehouse()
+	{	
+        this.number=new int[4]{0,0,0,0};
+		list.Add(new List<production>());
+		list.Add(new List<production>());
+        list.Add(new List<production>());
+        list.Add(new List<production>());
+	}
+    public void import(string pro, int num)
+    {
+        int i = 0;
+        switch (pro)
+        {
+            case "NoteBook":
+                {
+                    for (i=0; i < num; number[0]++)
+                    {
+                        NoteBook p = new NoteBook( Convert.ToInt32(Guid.NewGuid()), "惠普笔记本", 10000.0);
+                        list[0].Add(p);
+                        i++;
+                    }
+                    break;
+                }
+            case "Apple":
+                {
+                    for (i=0; i < num; number[1]++)
+                    {
+                        Apple p = new Apple(Convert.ToInt32(Guid.NewGuid()), "蓝牙耳机", 1200.0);
+                        list[1].Add(p);
+                        i++;
+                    }
+                    break;
+                }
+            case "Banana":
+                {
+                    for (i=0; i < num; number[2]++)
+                    {
+                        Banana p = new Banana(Convert.ToInt32(Guid.NewGuid()), "香蕉", 100.0);
+                        list[2].Add(p);
+                        i++;
+                    }
+                    break;
+                }
+            case "Iphone":
+                {
+                    for (i=0; i < num; number[3]++)
+                    {
+                        Iphone p = new Iphone(Convert.ToInt32(Guid.NewGuid()), "苹果手机", 8000.0);
+                        list[3].Add(p);
+                        i++;
+                    }
+                    break;
+                }
+        }
+    }
+		//导出货物	
+		public void export(string pro,int num)
+		{
+			int i=0;
+			switch(pro)
+			{
+				//逐位取出数据
+				case "NoteBook":
+				{
+					if(number[0]<num)
+					{
+						 Console.WriteLine(pro+"货物已不够","error");
+						return ;
+					}
+					for(i=0;i<num;number[0]--)
+					{
+						//取出数据
+						list[0].RemoveAt(number[0]);
+						i++;
+					}
+                    break;
+				}
+				case "Apple":
+				{
+					if(number[1]<num)
+					{
+						Console.WriteLine(pro+"货物已不够","error");
+						return ;
+					}
+					for(i=0;i<num;number[1]--)
+					{
+						
+						list[1].RemoveAt(number[1]);
+						i++;
+					}
+                    break;
+				}
+				case "Banana":
+				{
+					if(number[2]<num)
+					{
+						Console.WriteLine(pro+"货物已不够","error");
+						return ;
+					}
+					for(i=0;i<num;number[2]--)
+					{
+						
+						list[2].RemoveAt(number[2]);
+						i++;
+					}
+                    break;
+				}
+				case "Iphone":
+				{
+					if(number[3]<num)
+					{
+						Console.WriteLine(pro+"货物已不够","error");
+						return ;
+					}
+					for(i=0;i<num;number[3]++)
+					{
+						list[3].RemoveAt(number[3]) ;
+						i++;
+					}
+                    break;
+				}
+		}
 
+    }
+    }
+}
 
 
 

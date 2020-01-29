@@ -1,0 +1,6 @@
+c:\users\若拙\documents\visual studio 2013\Projects\supermarkey\supermarkey\bin\Debug\supermarkey.exe.config
+C:\Users\若拙\documents\visual studio 2013\Projects\supermarkey\supermarkey\obj\Debug\supermarkey.csprojResolveAssemblyReference.cache
+C:\Users\若拙\documents\visual studio 2013\Projects\supermarkey\supermarkey\bin\Debug\supermarkey.exe
+C:\Users\若拙\documents\visual studio 2013\Projects\supermarkey\supermarkey\bin\Debug\supermarkey.pdb
+C:\Users\若拙\documents\visual studio 2013\Projects\supermarkey\supermarkey\obj\Debug\supermarkey.exe
+C:\Users\若拙\documents\visual studio 2013\Projects\supermarkey\supermarkey\obj\Debug\supermarkey.pdb
