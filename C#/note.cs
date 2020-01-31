@@ -1307,8 +1307,14 @@ namespace supermarkey
     }
     }
 }
-
-
+//GDI 
+类 Graphics
+   Pen Point 
+   Graphics.drawline();
+   Font()
+   Bitmap (bmp)//操作系统下的图片
+   微软雅黑 楷体 隶书 仿宋 华文行云
+   setpixe
 
 
 
