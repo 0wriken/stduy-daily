@@ -1,0 +1,9 @@
+D:\GIT4\C#\串口通信\项目1\项目1\bin\Debug\项目1.exe.config
+D:\GIT4\C#\串口通信\项目1\项目1\bin\Debug\项目1.exe
+D:\GIT4\C#\串口通信\项目1\项目1\bin\Debug\项目1.pdb
+D:\GIT4\C#\串口通信\项目1\项目1\obj\Debug\项目1.csprojResolveAssemblyReference.cache
+D:\GIT4\C#\串口通信\项目1\项目1\obj\Debug\项目1.Form1.resources
+D:\GIT4\C#\串口通信\项目1\项目1\obj\Debug\项目1.Properties.Resources.resources
+D:\GIT4\C#\串口通信\项目1\项目1\obj\Debug\项目1.csproj.GenerateResource.Cache
+D:\GIT4\C#\串口通信\项目1\项目1\obj\Debug\项目1.exe
+D:\GIT4\C#\串口通信\项目1\项目1\obj\Debug\项目1.pdb

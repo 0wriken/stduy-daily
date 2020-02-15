@@ -1,9 +1,10 @@
+/*
 dynamic :弱类型转换提供灵活性
 C#强转javaspri弱
 没有头文件，方法声明与定义不分开
 字段：成员变量
 静态只读字段：初始化实例（构造不可变）
-
+*/
 2.属性：微软自动封装
 using System
 class sudent
@@ -65,12 +66,14 @@ namespace idexTest
 	}
 class student
 {
-	private Dictionary<string ,int>sorce=new Dictionary<string ,int>(); //调用库泛型编程为string类型与下标值
-	public int? this(string subject) //int? 返回值包括NULL this 用于构造函数 
+	//使用字典，键为stirng类型，值为int类型
+	private Dictionary<string ,int>sorce=new Dictionary<string ,int>(); 
+	//？表示包括返回值为NULL this用于构造函数
+	public int? this(string subject) 
 	{
-
 		get
 		{
+			//containKey是否包含键
 			if(this.sorce.ContainKey[subject])  
 			{
 				return this.sorce[subject];
@@ -86,10 +89,12 @@ class student
 			{
 				throw new EXception("the value is error");
 			}
+			//如果当前的键值存在则替换其对应的数据
 			if(this.sorce.ContainKey[subject])
 			{
 				this.sorce[subject] =value.Value;
 			}
+			//如果不存在就添加键值
 			else
 			{
 				this.sorce.Add(subject,value.Value);//没有找到科目且分数合格则添加到字典中
@@ -113,7 +118,7 @@ class student
 	}
 输出参数： out 
 		与引用的区别：引用需要调用前初始化，out必须在离开前赋值 
-		static void Main(string[] args)
+	static void Main(string[] args)
 	{
 		console.WriteLine("please input the number");
 		string arg1= console.ReadLine();
@@ -135,12 +140,14 @@ class student
 		}
 		console.WriteLine(x+y);
 	}
-	实现机制：
+	Tryparse实现机制：
+		//Tryparse 不会产生异常,只有faulse 和ture
 		static bool TryParse(string input,out double result)
 		{
 			try
 			{
-				result = double.parse(input); //类型转换 if转换错误则catch
+				//parse用于类型转换，类型.parse(string) 如果为null则抛出异常
+				result = double.parse(input); 
 				return true;
 			}
 			catch
@@ -149,11 +156,13 @@ class student
 				return false;
 			}
 		}
-	输出类型：
+namespace 输出类型
+{
 	static void Main(string[] args)
 	{
 		student stu=null;
-		if(Create(stu))  //参数？？？
+		//同引用一样，不过引用要初始化数据吗，分配空间  
+		if(Create(stu))  
 		{
 			console.WriteLine(stu.name,stu.age);
 		}
@@ -179,12 +188,13 @@ class student
 		return = new student("wriken",22);
 		return true;
 	}
+}
 数组参数： params 必须是形参列表的最后一个
 	static void Main(string[] args)
 	{
 		console.WriteLine(addAll({0,1,2}));//数组对象构造重载
 		string str="wrien;yukong";
-	 	string []result=str.Split(';','.','/');//自动按照符号分割字符串
+	 	string []result=str.Split(';' , '.' , '/');//自动按照符号分割字符串
 	 	foreach(var item in result)
 	 	{
 	 		console.WriteLine(item);
@@ -202,17 +212,18 @@ class student
 具名参数：参数的位置不受约束而且可读性好
 	static void Main(string[] args)
 	{
+		 prin(age:78,name:"YU KONG")
 		 prin(name:"wriken",age:22);
 	}
 	static void prin(string name,int age)
 	{
 		console.WriteLine(name,age);
 	}
-	
 可选参数：参数有默认值,与C++中的缺省差不多
 	static void Main(string[] args)
 	{
-		 prin();//具有默认值
+		//具有默认值
+		 prin();
 	}
 	static void prin(string name="wriken",int age=22)
 	{
@@ -285,35 +296,23 @@ delegate 是函数指针的升级版
 			}
 		}
 	}
-	class Calculator
-	{
-		public void pri()
-		{
-			console.WriteLine("hello");
-		}
-		public int Add(double a, double b)
-		{
-			int result =a+b;
-			return result;
-		}
-		public int Sub(double a, double b)
-		{
-			int result =a-b;
-			return result;
-		}
-	}
 委托的使用：模板方法，回调方法
 	模板方法：	
 	static void Main(string[] args)
 	{
+		//创建对象
 		ProFactor factory=new ProFactor();
 		WrapFactry warp=new WrapFactry();
 		Logger log=new Logger();
 	/*	warp.WrapProduct(factory.MakePizza);
 		warp.WrapProduct(factory.MakeCar);	*/
+		/*
+		使用 func Action 泛型委托
+		func 与action的区别 func 有返回值 而 action无返回值 
+		*/
 		Func<product> func1=new Func<product>(factory.MakePizza);
 		Func<product> func2=new Func<product>(factory.MakeCar);
-		Action<product>func3=new Action<product>(log);
+		Action<product> func3=new Action<product>(log);
 		Box box1 = new Box();
 		Box box2= new Box();
 		box1 = warp.WrapProduct(func1,func3);
@@ -394,7 +393,8 @@ delegate 是函数指针的升级版
  		}
  	}
  	class Boy
- 	{ 		//事件处理器
+ 	{ 	
+		//internal 关键字是类型和类型的成员 访问修饰符。只有在同一程序集的文件中，内部类型或成员才是可访问的
  		internal void Action(object sender,ElapsedEnentArgs e)
  		{
  			console.WriteLine("hello");
@@ -407,13 +407,15 @@ delegate 是函数指针的升级版
 重写关键字：override 
 不同于虚函数 virtual 抽象修饰无方法体，且类也要定义为抽象类
 	using System;
-	namespace wriken{
+namespace wriken{
  	class program
  	{
  		static void Main(string[] args)
  		{
+			 /*定义基类实现多态*/
  			Example i=new Car();
- 			i.Run();//多态
+ 			//多态实现方法
+			 i.Run();
 		}
 	}		
 	/*类似于C++中的虚函数*/
@@ -424,10 +426,10 @@ delegate 是函数指针的升级版
 		{
 			console.WriteLine("Exaanpole is Run..");
 		}
-
 	}
 	class Car:Example
 	{
+		//继承后开始重写函数
 		public override void Run()
 		{
 			console.WriteLine("Car is Runing..");
@@ -443,7 +445,7 @@ delegate 是函数指针的升级版
 	/* C#中的抽象类使用**/
 	abstract class Example
 	{
-		/*虚函数要定义方法*/
+		/*抽象类中不得实现方法 */
 		public abstract void RUN();
 	}
 	class Car:Example
@@ -485,14 +487,14 @@ delegate 是函数指针的升级版
 	class Car:Example
 	{
 		public override void Fill()
-	{
-		console.WriteLine("CAR is FiLL..");
-	}
+		{
+			console.WriteLine("CAR is FiLL..");
+		}
 	}
 }
 /*接口与耦合*/
 using System;
-	namespace wriken{
+namespace wriken{
  	class program
  	{
  		static void Main(string[] args)
@@ -502,9 +504,11 @@ using System;
  			c1.Run(100);
  			console.WriteLine("%d",c1.Speed);
 		}
+	/*汽油类*/	
 	class volue
 	{
 		public int GAS{get;private set;}
+		/* 算出需要的汽油量*/
 		public void work(int value)
 		{
 			this.GAS=value*1000;
@@ -526,7 +530,7 @@ using System;
  		}
 	}
 }
-	/*使用接口实现低耦合*/
+/*使用接口实现低耦合*/
 using system;
 namespace wriken{
  	class program
@@ -534,7 +538,6 @@ namespace wriken{
  		static void Main(string[] args)
  		{
 			userPhone user=new (new Apple());
-			//userPhone user=new(new SAMSUM());
 			user.whatabout();
 		}
 	interface phone
@@ -605,7 +608,7 @@ namespace wriken
 		interface IPowerLow
 		{
 			int GetPower();
-		}
+		}	
 		class DeskFan:IPowerLow
 		{
 			public int GetPower()
@@ -617,6 +620,7 @@ namespace wriken
 		class Check_Pow
 		{
 			public IPowerLow _IPowerLow;
+			//在一个类中嵌套另一个类，同时作为构造函数的参数传入数据`
 			public Check_Pow(IPowerLow IPowerLow)
 			{
 				this._IPowerLow=IPowerLow;
@@ -649,6 +653,7 @@ namespace InterfaceExample.idexTest
 {	
 	class DeskFan_Text
 	{
+		//[Fact]使用特性
 		[Fact]
 		public void IPowerthanZero.OK()
 		{
@@ -657,7 +662,6 @@ namespace InterfaceExample.idexTest
 			var str1=c1.check();
 			Asset.Equal(str,str1);
 		} 
-
 	}
 	class IPowerthanZero:IPowerLow
 	{
@@ -676,32 +680,6 @@ namespace InterfaceExample.idexTest
 9./*泛型 编程*/
 /*为了避免编程时候的成员膨胀
   正交性 */
-
-using System;
-using namespace program
-{
-	class Program
-	{
-		public static void Main(string []args)
-		{
-
-		}
-	}
-} 
-class Apple
-{
-	public string color{get;set;}
-}
-class book
-{
-	public string Name{get;set;}
-}
-class box <TID>
-{
-	public <TID> console{get;set;}
-}
-
-
 using System;
 namespace wriken
 {
@@ -717,34 +695,36 @@ namespace wriken
 			p1=s1;
 			//父类由相应子类转换后可以赋值相应的子类对象
 			student s2=(student ) p1;
-
+			//is 用于判断双方是否符合里氏转换
 			if(p1 is student)
-			s3=p1 as student;
-
+			//as用于里氏转换为对应的类型数据
+				s3=p1 as student;
 			//里氏转换应用
+			/*列表数组*/
 			ArrayList list=new ArrayList();
 			int[] num=new int [10]{1,2,3,4,5,6};
-			string[] str=new iu=string [3]{"wriken","look","nothing"};
+			string[] str=new string [3]{"wriken","look","nothing"};
 			list.Add(num);
 			list.Add(str);
 			list.Add(p1);
 			list.Add(s2);
 			foreach(int i in list.length)
 			{
+				//判断是否为该类型的父子类？
 				if(list[i] is int[])
 				{
-					foreach(int j in (list[i] as int[])[j])
+					 int j=0;
+					//遍历该列表并转换为数组迭代出每个数据
+					foreach(j in (list[i] as int[]).length)
 					{
-
 						console.WriteLine("整数",(list[i] as int[])[j]));
 					}
 				}
 				if(list[i] is string[])
 				{
 					int  j=0;
-					foreach( j in (list[i] as string[][j])
+					foreach( j in (list[i] as string[]).length) 
 					{
-
 						console.WriteLine("字符串",(list[i] as string[])[j]));
 					}
 				}
@@ -779,7 +759,7 @@ namespace wriken
 	}
 	public class student :person
 	{
-		//不继承父类构造函数 但是会调用
+		//自定义父类的构造函数则会调用
 		public student(string NAME,int age,char sex):base(NAME,age,sex)
 		{
 			this.NAME=NAME;
@@ -1315,6 +1295,61 @@ namespace supermarkey
    Bitmap (bmp)//操作系统下的图片
    微软雅黑 楷体 隶书 仿宋 华文行云
    setpixe
+1. 复习：
+接口实现方法的重名问题
+M1.fly();
+M2.fly();
+继承抽象或者接口必须方法全部实现
+虚函数与抽象函数的区别:
+	简单来说虚函数（Virtual）已经包含了也必须包含默认的实现，所以在派生类中可以重新实现也可以不实现这些虚函数。 
+抽象函数（abstract）没有提供默认实现，所以在派生类中必须实现这些抽象函数。 
+接口中的函数类似于抽象函数，也不提供默认实现，实现接口的类也必须实现这些函数。 
+但接口可用于多继承，即，类只能从一个类继承，但可同时实现多个接口。
+序列化:
+	将对象转换为二进制
+反序列化:	
+	二进制转化为对象
+[Serializable]  //可序列化
+FileStream(@"",FileMode.openorCreate,FileAccess.write);
+BinaryFormatter();//序列化对象
+//服务端
+BinaryFormatter.Serialize(new FileStream(@"",FileMode,FileAccess),person);
+//客户端
+ per=(per)BinaryFormatter.deSerialize(new FileStream(@"",FileMode,FileAccess));
+装箱:
+	将值类型转换为引用类型
+拆箱:
+	引用转换为值类型
+必须符合两种类型间的继承关系
+字典:	
+Dictionary<int string>dic =new Dictionary<int string>();
+dic.Add(1,"hujk");
+dic[2]="掌声";
+//遍历所有键与值
+foreach(KeValuePair<int string> kv in dic)
+{
+	kv.Key;
+	kv.Value;
+}
+结构中的构造有且只有0或多个参数
+静态方法与非静态: 静态不需要构造，只需要类.方法;
+静态类和非静态类:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
