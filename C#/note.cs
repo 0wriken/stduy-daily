@@ -604,7 +604,6 @@ namespace wriken
 			Check_Pow ch1=new Check_Pow(new DeskFan());
 			return ;
 		}
-	
 		interface IPowerLow
 		{
 			int GetPower();
@@ -788,7 +787,8 @@ namespace wriken
 	 		}
 		 	foreach(var i in ht.Keys)
 	 		{
-	 			console.WriteLine(ht[i]);
+				console.Write("键:",i);
+	 			console.WriteLine("值:",ht[i]);
 	 		}
 	 	} 
 
@@ -799,20 +799,53 @@ namespace wriken
 	{
 		static void Main(string[] args)
 		{
+			int F_flag=0;
 			HashTable ht=new HashTable();
 			const string s1="繁体中文合集";
 			const string s2 ="简体中文合集";
+			/*将简体与繁体组合为字典*/
 			for(int i=0;i<s2.length;i++)
 			{
 				ht.Add(s2[i],s1[i]);
 			}
-			console.WriteLine("写入汉字,将他转换为火星文");
+			console.WriteLine("写入任意汉字,将他转换为相反的数据形式");
 			string str=console.ReadLine();
 			for(i=0;i<str.length;i++)
 			{
-				if(ht.ContainKeyn(str[i]))
+				/*使用关键字来遍历字典*/
+				foreach(KeyValuePairvar find<string,string> in ht)
 				{
+					if(find.value=str[])
+					{
+						console.WriteLine(find.Key);
+					}
+					if (find.Key=str[i])
+					{
+						console.WriteLine(find.value);	
+					}
+				}
+				/*自己的方法实现对字典的分别查询*/		
+				//判断字典中是否有该数据
+				if(ht.ContainKey(str[i])
+					F_flag=0;
+				if(ht.ContainValue(str[i]))
+					F_flag=1;
+				if(!F_flag)
+				{
+					//已知键，用下标显示值
 					console.WriteLine(ht[str[i]]);
+				}
+				else
+				{
+					//已知值得，用遍历来寻找键
+					for(var key in ht.keys)
+					{
+						if(ht[key]==str[i])
+						{
+							console.WriteLine(key);
+						}
+					}
+					
 				}
 			}
 		}
@@ -858,14 +891,15 @@ namespace wriken
 
 namespace 拆箱装箱
 {
-
 	class program
 	{
 		static void Main(string[] args)
 		{  
 			int n=10;
-			object o=n;//装箱
-			int nn=(int)o;//拆箱
+			//装箱
+			object o=n;
+			//拆箱
+			int nn=(int);
 		}
 	}
 }
@@ -876,7 +910,7 @@ namespace 键值泛型结合
 	{
 		static void Main(string[] args)
 		{
-			Dictionary <in,string> dic=new <int,string>();
+			Dictionary <in,string> dic=new Dictionary<int,string>();
 			foreahc(var i in dic.Keys)
 			{
 				console.WriteLine(dic[i]);
@@ -890,15 +924,20 @@ namespace 键值泛型结合
 			public void check(string str)
 			{
 				dic=new <char,int>();
+				/*循环遍历字符*/
 				foreach(char i in str)
 				{
-					if(dic.ContainValue)
+					/*判断字符是否存在于字典键中*/
+					if(dic.ContainKey(i))
+					/*在字典中则代表值（个数）自加*/
 						dic[str[i]]++;
 					else
+					/*不在字典中则，个数从0到1*/
 					dic[str[i]]=1;
 				}
 				for(var a in dic.Keys)
 				{
+					/*输出每个字符和字符的个数*/
 					console.WriteLine("%s,%d",a,dic[a]);
 				}
 		}
